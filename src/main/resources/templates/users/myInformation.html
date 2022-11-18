@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="utf-8" />
+    <title>Người dùng</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+
+    <link href="../static/users/css/styles.css"
+          th:href="@{/users/css/styles.css}" rel="stylesheet" />
+    <link href="../static/users/css/myInformation.css"
+          th:href="@{/users/css/myInformation.css}" rel="stylesheet" />
+    <link href="../static/users/css/index.css"
+          th:href="@{/users/css/index.css}" rel="stylesheet" />
+</head>
+<body id="page-top">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" th:fragment="header" style="background-color: #212529;
+    @media (min-width: 992px) {
+            background-color: #212529;
+    }">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/index}" style="display: flex; align-items: center">
+            <div>
+                <img th:src="@{/users/logoanhphc/Artboard3.png}" alt="..." style="width: 120px; height: 100px;" class="imgLogoindex">
+            </div>
+            <div>
+                <span class="spanindex" style="color: #ffc800;">MST 0401977829<br>CÔNG TY TNHH HỖ TRỢ VÀ ĐẦU TƯ TÀI CHÍNH ANH PHÚC</span>
+            </div>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link" th:href="@{/index}">Trang chủ</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/profile/myInformation}">Tôi</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Trợ giúp</a></li>
+                <li class="nav-item" style="display: flex;">
+                    <div style="display: flex; justify-content: center;"><img th:src="@{/users/assets/img/portfolio/hoctap.jpeg}" alt="" height="40px;" width="40px;" style="border-radius: 50%"></div>
+                    <a class="nav-link" th:href="@{/profile/myInformation}" style="margin-left: 5px;">[[${#httpServletRequest.remoteUser}]]</a>
+                    <input type="hidden" th:name="${_csrf.parameterName}"
+                           th:value="${_csrf.token}" />
+                </li>
+                <li class="nav-item ip-logOut">
+                    <form th:action="@{/logout}" method="post">
+                        <input style="border-radius: 20px;" type="submit" value="Đăng xuất"/>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section class="page-section bg-light" id="user" style="padding: 15rem 0;">
+    <div class="container">
+<!--        <div class="alert alert-success" id="alert">-->
+<!--            <div>-->
+<!--                <strong>Success!</strong> Login Successful.-->
+<!--            </div>-->
+
+<!--           <div>-->
+<!--               <span class="close-span" id="close-span">&times;</span>-->
+<!--           </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <div class="container">
+        <div class="text-center" id="information" style="margin-bottom: 30px;">
+            <h3 class="section-heading text-uppercase" style="color: #ffc800">Thông tin của tôi</h3>
+            <span>Hãy điền đầy đủ thông tin ở dưới để tiến hành vay tiền!</span>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <a th:href="@{/profile/cmndCccd}" class="user-link">
+                    <div class="user-loan">
+                        <div>
+                            <img class="mx-auto rounded-circle" th:src="@{/users/img/myInformation/icon1.png}" alt="..." />
+                            <p>Thông tin CMND/CCCD</p>
+                        </div>
+
+                        <div>
+                            <img th:src="@{/users/img/myInformation/hoa.webp}" alt="..." />
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-12">
+                <a th:href="@{/profile/personalInformation}" class="user-link">
+                    <div class="user-loan">
+                        <div>
+                            <img class="mx-auto rounded-circle" th:src="@{/users/img/myInformation/icon3.webp}" alt="..." />
+                            <p>Thông tin cá nhân</p>
+                        </div>
+
+                        <div>
+                            <img th:src="@{/users/img/myInformation/hoa.webp}" alt="..." />
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-12">
+                <a th:href="@{/profile/formBank}" class="user-link">
+                    <div class="user-loan">
+                        <div>
+                            <img class="mx-auto rounded-circle" th:src="@{/users/img/myInformation/icon2.png}" alt="..." />
+                            <p>Tài khoản ngân hàng</p>
+                        </div>
+
+                        <div>
+                            <img th:src="@{/users/img/myInformation/hoa.webp}" alt="..." />
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-12">
+                <a th:href="@{/profile/formHousehold}" class="user-link">
+                    <div class="user-loan">
+                        <div>
+                            <img class="mx-auto rounded-circle" th:src="@{/users/img/myInformation/icon4.jpg}" alt="..." />
+                            <p>Chụp ảnh chữ ký tay</p>
+                        </div>
+
+                        <div>
+                            <img th:src="@{/users/img/myInformation/hoa.webp}" alt="..." />
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-12">
+                <a th:href="@{/profile/changePassword}" class="user-link">
+                    <div class="user-loan">
+                        <div>
+                            <img class="mx-auto rounded-circle" th:src="@{/users/img/myInformation/icon5.jpg}" alt="..." />
+                            <p>Đổi mật khẩu</p>
+                        </div>
+
+                        <div>
+                            <img th:src="@{/users/img/myInformation/hoa.webp}" alt="..." />
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-12">
+                <a th:href="@{/profile/wallet}" class="user-link">
+                    <div class="user-loan">
+                        <div>
+                            <img class="mx-auto rounded-circle" th:src="@{/users/img/myInformation/icon6.png}" alt="..." />
+                            <p>Ví điện tử</p>
+                        </div>
+
+                        <div>
+                            <img th:src="@{/users/img/myInformation/hoa.webp}" alt="..." />
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="text-center">
+            <a class="btn btn-primary btn-xl text-uppercase" id="loan" th:href="@{/profile/loanApplicationForm}">Vay ngay</a>
+        </div>
+    </div>
+</section>
+<footer th:replace="layout :: footer"></footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+<script src="../static/users/js/scripts.js"
+        th:src="@{/users/js/scripts.js}"></script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head-login_register">
+    <link rel="icon" type="image/png" href="../static/login/images/icons/favicon.ico"
+          th:href="@{/users/login/images/icons/favicon.ico}"/>
+    <link href="../static/users/login/css/util.css"
+          th:href="@{/users/login/css/util.css}" rel="stylesheet" />
+    <link href="../static/users/login/css/main.css"
+          th:href="@{/users/login/css/main.css}" rel="stylesheet" />
+    <link href="../static/users/login/css/login_register.css"
+          th:href="@{/users/login/css/login_register.css}" rel="stylesheet" />
+</head>
+<body>
+<header th:fragment="header-login_register" style="background-color: #474a4d">
+    <a class="navbar-brand nav-bar_login_register" th:href="@{/index}">
+        <div>
+            <img th:src="@{/users/logoanhphc/Artboard3.png}" alt="..." style="width: 120px; height: 100px;">
+        </div>
+        <div>
+            <span class="spanuser">MST 0401977829<br>CÔNG TY TNHH HỖ TRỢ VÀ ĐẦU TƯ TÀI CHÍNH ANH PHÚC</span>
+        </div>
+    </a>
+</header>
+
+<footer th:fragment="footer-login_register">
+    <a style="text-decoration: none; color: #ffc800; font-size: 16px;">
+        <div style="display: flex; justify-content: center;">
+            <span>MST 0401977829</span>
+        </div>
+        <span>CÔNG TY TNHH HỖ TRỢ VÀ ĐẦU TƯ TÀI CHÍNH ANH PHÚC</span></a>
+</footer>
+</body>
+</html>

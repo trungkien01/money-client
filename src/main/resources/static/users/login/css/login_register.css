@@ -1,0 +1,150 @@
+.btnForm{
+    display: flex;
+    align-items: end;
+}
+
+.div_right{
+    margin-left: 10px;
+}
+
+.nav-bar_login_register{
+    margin-left: 50px;
+    display: flex;
+    align-items: center
+}
+
+header{
+    height: 90px;
+    display: flex;
+    align-items: center;
+}
+
+footer{
+    text-transform: uppercase;
+    height: 72px;
+    background-color: #1a1e21;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer img{
+    width: 150px;
+    height: 72px;
+}
+
+.imgForm{
+    background-image: url("../images/bg-01.jpg");
+}
+
+.spanuser{
+    font-size: 14px;
+}
+
+@media (max-width: 576px) {
+    .btnForm{
+        display: block;
+    }
+
+    .div_left{
+        min-width: 350px;
+        text-align: center;
+    }
+
+    .div_left-btn{
+        width: 100%;
+    }
+
+    .div_right{
+        margin-left: 0px;
+        margin-top: 20px;
+        min-width: 350px;
+        text-align: center;
+    }
+
+    .div_right-a{
+        width: 100%;
+    }
+
+    .nav-bar_login_register{
+        margin-left: 0px;
+    }
+
+    .spanuser{
+        font-size: 9.2px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px){
+    .btnForm{
+        display: block;
+    }
+
+    .div_left{
+        min-width: 350px;
+        text-align: center;
+    }
+
+    .div_left-btn{
+        width: 100%;
+    }
+
+    .div_right{
+        margin-left: 0px;
+        margin-top: 20px;
+        min-width: 350px;
+        text-align: center;
+    }
+
+    .div_right-a{
+        width: 100%;
+    }
+
+    .nav-bar_login_register{
+        margin-left: 0px;
+    }
+
+    .spanuser{
+        font-size: 9.2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btnForm{
+        display: block;
+    }
+
+    .div_left{
+        min-width: 350px;
+        text-align: center;
+    }
+
+    .div_left-btn{
+        width: 100%;
+    }
+
+    .div_right{
+        margin-left: 0px;
+        margin-top: 20px;
+        min-width: 350px;
+        text-align: center;
+    }
+
+    .div_right-a{
+        width: 100%;
+    }
+
+    .nav-bar_login_register{
+        margin-left: 0px;
+    }
+
+    .spanuser{
+        font-size: 9.2px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 576px){
+    .spanindex{
+        font-size: 9.2px;
+    }
+}

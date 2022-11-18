@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thẻ Ngân Hàng</title>
+</head>
+<body>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+<link rel="icon" type="image/png" href="../static/users/login/images/icons/favicon.ico"
+      th:href="@{/users/login/images/icons/favicon.ico}"/>
+<link href="../static/users/login/css/login_register.css"
+      th:href="@{/users/login/css/login_register.css}" rel="stylesheet" />
+<link href="../static/users/css/styles.css"
+      th:href="@{/users/css/styles.css}" rel="stylesheet" />
+<link href="../static/users/css/index.css"
+      th:href="@{/users/css/index.css}" rel="stylesheet" />
+<link href="../static/users/css/formBank.css"
+      th:href="@{/users/css/formBank.css}" rel="stylesheet" />
+
+<header th:fragment="header-login_register" style="background: #474a4d; margin-left: 0px;">
+    <a class="navbar-brand nav-bar_login_register" th:href="@{/index}">
+        <div>
+            <img th:src="@{/users/logoanhphc/Artboard3.png}" alt="..." style="width: 120px; height: 100px;">
+        </div>
+        <div>
+            <span style="font-size: 14px;">MST 0401977829<br>CÔNG TY TNHH HỖ TRỢ VÀ ĐẦU TƯ TÀI CHÍNH ANH PHÚC</span>
+        </div>
+    </a>
+</header>
+
+<section class="get-in-touch" style="padding: 0; padding-top: 15px; margin-bottom: 100px;">
+    <h2 class="title">Thẻ Ngân Hàng</h2>
+    <form class="contact-form row" th:action="@{/profile/saveBank}" method="post" th:object="${bankDTO}">
+        <div class="form-field col-lg-6">
+            <input id="name" class="input-text js-input" name="nameUserBank" type="text" th:field="*{nameUserBank}">
+            <label class="label" for="name">Tên Chủ Thẻ Ngân Hàng</label>
+            <span style="color: red;" th:text="${errNameUserBank}"></span>
+            <small></small>
+        </div>
+
+        <div class="form-field col-lg-6 ">
+            <input id="number" class="input-text js-input" name="numberCMND" type="text" th:field="*{cmndCccd}" disabled>
+            <label class="label" for="number">Số CMND/CCCD</label>
+            <span style="color: red;" th:text="${errCmndCccd}"></span>
+            <small></small>
+        </div>
+
+        <div class="form-field col-lg-6 ">
+            <label class="label" for="bankName" style="margin-bottom: 20px;">Tên Ngân Hàng</label>
+            <select name="nameBank" id="bankName" class="input-text js-input" style="color: #ffc880;" th:field="*{nameBank}">
+                <option value="" selected="selected">Chọn ngân hàng</option>
+                <option th:each="bank : ${banks}" th:value="${bank.name}" th:text="${bank.name}"></option>
+            </select>
+            <span style="color: red;" th:text="${errNameBank}"></span>
+        </div>
+
+        <div class="form-field col-lg-6 ">
+            <input id="stk" name="numberBank" class="input-text js-input" type="text" th:field="*{numberBank}">
+            <label class="label" for="stk">Số Tài Khoản Ngân Hàng</label>
+            <span style="color: red;" th:text="${errNumberBank}"></span>
+        </div>
+
+        <div class="text-center">
+            <span style="color: #04AA6D;" th:text="${smg}"></span>
+        </div>
+        <div class="form-field col-lg-12" style="display: flex; justify-content: center">
+            <input class="submit-btn" type="submit" value="Lưu Lại">
+        </div>
+
+        <div style="display: flex; justify-content: center; margin-bottom: 25px;">
+            <a class="a-comeBack" th:href="@{/profile/myInformation}" style="text-decoration: none; margin-top: 15px;"><i class="glyphicon glyphicon-arrow-left"></i> Quay lại</a>
+        </div>
+    </form>
+</section>
+<footer th:replace="layoutRegisterLogin :: footer-login_register"></footer>
+</body>
+</html>

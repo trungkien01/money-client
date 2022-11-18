@@ -1,0 +1,47 @@
+2022-11-18 09:21:51,020 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.7.Final
+2022-11-18 09:21:51,024 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting WebCreditApplication on MSI with PID 3600 (D:\web-credit\web-credit\build\classes\java\main started by Admin in D:\web-credit\web-credit)
+2022-11-18 09:21:51,024 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.12.RELEASE, Spring v5.2.15.RELEASE
+2022-11-18 09:21:51,025 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2022-11-18 09:21:51,053 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-11-18 09:21:51,054 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-11-18 09:21:51,539 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-18 09:21:51,584 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 40ms. Found 4 JPA repository interfaces.
+2022-11-18 09:21:51,929 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2022-11-18 09:21:51,934 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8081"]
+2022-11-18 09:21:51,935 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2022-11-18 09:21:51,935 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.46]
+2022-11-18 09:21:51,997 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2022-11-18 09:21:51,998 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 943 ms
+2022-11-18 09:21:52,136 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-18 09:21:52,163 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-11-18 09:21:52,243 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-11-18 09:21:52,318 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-11-18 09:21:52,438 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2022-11-18 09:21:52,448 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2022-11-18 09:21:52,933 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-18 09:21:52,938 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-11-18 09:21:52,960 WARN org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] Unable to start LiveReload server
+2022-11-18 09:21:53,448 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Creating filter chain: Ant [pattern='/registration/**'], []
+2022-11-18 09:21:53,448 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Creating filter chain: Ant [pattern='/favicon.ico'], []
+2022-11-18 09:21:53,449 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Creating filter chain: Ant [pattern='/resources/**'], []
+2022-11-18 09:21:53,449 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Creating filter chain: Ant [pattern='/error'], []
+2022-11-18 09:21:53,449 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Creating filter chain: Ant [pattern='/users/js/**'], []
+2022-11-18 09:21:53,449 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Creating filter chain: Ant [pattern='/users/css/**'], []
+2022-11-18 09:21:53,449 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Creating filter chain: Ant [pattern='/users/img/**'], []
+2022-11-18 09:21:53,449 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Creating filter chain: Ant [pattern='/users/assets/**'], []
+2022-11-18 09:21:53,449 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Creating filter chain: Ant [pattern='/users/login/**'], []
+2022-11-18 09:21:53,449 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Creating filter chain: Ant [pattern='/users/logoanhphc/**'], []
+2022-11-18 09:21:53,449 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Creating filter chain: Ant [pattern='/profile/resetPassword'], []
+2022-11-18 09:21:53,449 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Creating filter chain: Ant [pattern='/profile/sendEmailPassword'], []
+2022-11-18 09:21:53,471 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79fd9346, org.springframework.security.web.context.SecurityContextPersistenceFilter@40653070, org.springframework.security.web.header.HeaderWriterFilter@6299180, org.springframework.security.web.csrf.CsrfFilter@7b0d19ec, org.springframework.security.web.authentication.logout.LogoutFilter@5f245771, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7a57c26d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6554b768, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@54190652, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@3af624d6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7003e8de, org.springframework.security.web.session.SessionManagementFilter@12e6d9b1, org.springframework.security.web.access.ExceptionTranslationFilter@1d9eefbe, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@56e9285d]
+2022-11-18 09:21:53,594 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8081"]
+2022-11-18 09:21:53,605 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (http) with context path '/web-credit'
+2022-11-18 09:21:53,649 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started WebCreditApplication in 2.891 seconds (JVM running for 3.541)
+2022-11-18 09:22:15,277 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8081-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-11-18 09:22:15,277 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8081-exec-2] Initializing Servlet 'dispatcherServlet'
+2022-11-18 09:22:15,281 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8081-exec-2] Completed initialization in 4 ms
+2022-11-18 09:22:15,301 INFO com.credit.webcredit.controller.HomeController [http-nio-8081-exec-2] ----- index ---- 
+2022-11-18 09:22:17,508 INFO com.credit.webcredit.controller.HomeController [http-nio-8081-exec-7] ----- index ---- 
+2022-11-18 09:22:18,595 INFO com.credit.webcredit.config.CorsFilterConfiguration [http-nio-8081-exec-3] origin = http://localhost:8081
+2022-11-18 09:22:18,595 INFO com.credit.webcredit.config.CorsFilterConfiguration [http-nio-8081-exec-10] origin = http://localhost:8081
+2022-11-18 09:22:20,211 INFO com.credit.webcredit.config.CorsFilterConfiguration [http-nio-8081-exec-7] origin = http://localhost:8081

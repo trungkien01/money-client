@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Người dùng</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+
+    <link href="../static/users/css/styles.css"
+          th:href="@{/users/css/styles.css}" rel="stylesheet" />
+    <link href="../static/users/css/user.css"
+          th:href="@{/users/css/user.css}" rel="stylesheet" />
+    <link href="../static/users/css/index.css"
+          th:href="@{/users/css/index.css}" rel="stylesheet" />
+</head>
+<body>
+
+<nav th:replace="layout :: header"></nav>
+
+<section class="page-section bg-light" id="user">
+    <div class="container">
+        <div class="text-center" id="text-header">
+            <h2 class="section-heading text-uppercase">Thông Tin cá nhân</h2>
+            <a th:href="@{/contact}"><p id="contact" class="section-subheading text-muted">Nếu bạn có thắc mắc cần giải đáp vui lòng liên hệ với chúng tôi</p></a>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <a th:href="@{/profile/myInformation}" class="user-link">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" th:src="@{/users/img/user/card1.svg}" alt="..." />
+                        <h4>Thông tin của tôi</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4">
+                <a th:href="@{/users/myLoan}" class="user-link">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" th:src="@{/users/img/user/card2.svg}" alt="..." />
+                        <h4>Khoản vay của tôi</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4">
+                <a th:href="@{/users/payMyDebt}" class="user-link">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" th:src="@{/users/img/user/card3.svg}" alt="..." />
+                        <h4>Trả nợ của tôi</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<footer th:replace="layout :: footer"></footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+<script src="../static/users/js/scripts.js"
+        th:src="@{/users/js/scripts.js}"></script>
+</html>

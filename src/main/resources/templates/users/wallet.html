@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Khoản Vay Của Tôi</title>
+</head>
+<body>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+<link rel="icon" type="image/png" href="../static/users/login/images/icons/favicon.ico"
+      th:href="@{/users/login/images/icons/favicon.ico}"/>
+<link href="../static/users/login/css/login_register.css"
+      th:href="@{/users/login/css/login_register.css}" rel="stylesheet" />
+<link href="../static/users/css/styles.css"
+      th:href="@{/users/css/styles.css}" rel="stylesheet" />
+<link href="../static/users/css/index.css"
+      th:href="@{/users/css/index.css}" rel="stylesheet" />
+<link href="../static/users/css/myInformation.css"
+      th:href="@{/users/css/myInformation.css}" rel="stylesheet" />
+<style>
+    .get-in-touch {
+        max-width: 800px;
+        margin: 50px auto;
+        position: relative;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 5px;
+        background-color: aliceblue;
+    }
+
+    .get-in-touch .title {
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        padding-bottom: 48px;
+        color: #ffc800;
+    }
+
+    .contact-form .form-field {
+        position: relative;
+        margin: 32px 0;
+    }
+
+    .contact-form .input-text {
+        display: block;
+        width: 100%;
+        height: 36px;
+        border-width: 0 0 2px 0;
+        border-color: #5543ca;
+        font-size: 18px;
+        line-height: 26px;
+        font-weight: 400;
+    }
+
+    .contact-form .input-text:focus {
+        outline: none;
+    }
+
+    .contact-form .input-text:focus + .label,
+    .contact-form .input-text.not-empty + .label {
+        -webkit-transform: translateY(-24px);
+        transform: translateY(-24px);
+    }
+
+    .contact-form .label {
+        position: absolute;
+        left: 20px;
+        bottom: 11px;
+        font-size: 18px;
+        line-height: 26px;
+        font-weight: 400;
+        color: #000;
+        cursor: text;
+        transition: -webkit-transform .2s ease-in-out;
+        transition: transform .2s ease-in-out;
+        transition: transform .2s ease-in-out,
+        -webkit-transform .2s ease-in-out;
+    }
+
+    .contact-form .submit-btn {
+        display: inline-block;
+        background-color: #ffc800;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 16px;
+        padding: 8px 16px;
+        border: none;
+        width:200px;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+</style>
+<header th:fragment="header-login_register" style="background: #474a4d; margin-left: 0px;">
+    <a class="navbar-brand nav-bar_login_register" th:href="@{/index}">
+        <div>
+            <img th:src="@{/users/logoanhphc/Artboard3.png}" alt="..." style="width: 120px; height: 100px;">
+        </div>
+        <div>
+            <span style="font-size: 14px;">MST 0401977829<br>CÔNG TY TNHH HỖ TRỢ VÀ ĐẦU TƯ TÀI CHÍNH ANH PHÚC</span>
+        </div>
+    </a>
+</header>
+
+<div id="user" class="page-section bg-light">
+    <section class="get-in-touch" style="padding: 0; padding-top: 15px; margin-bottom: 100px; z-index: 10;">
+        <h2 class="title">Ví tiền của tôi</h2>
+        <div class="col-6 no-padding">
+            <a th:href="@{/profile/wallet-register}" class="btn btn-success float-right">
+                <i class="fa fa-plus-square"></i> Tạo yêu cầu rút tiền
+            </a>
+        </div>
+        <div class="col-6 no-padding">
+            <a href="#" class="btn btn-info float-left" style="position: absolute;left: 100%;">
+                <i class="fa fa-eye"></i> Danh sách đã rút tiền
+            </a>
+        </div>
+        <div style="text-align: center; font-size: 17px;">Thông tin ví điện tử</div>
+        <form class="contact-form row">
+            <div class="form-field col-lg-12 ">
+                <input id="money" class="input-text js-input" type="text">
+                <label class="label" for="money">Số dư ví</label>
+            </div>
+
+            <div class="form-field col-lg-12 ">
+                <input id="money2" class="input-text js-input" type="text">
+                <label class="label" for="money2">Tên chủ khoản</label>
+            </div>
+
+            <div style="display: flex; justify-content: center; margin-bottom: 25px;">
+                <a th:href="@{/profile/myInformation}" style="text-decoration: none; margin-top: 15px;"><i class="glyphicon glyphicon-arrow-left"></i> Quay lại</a>
+            </div>
+        </form>
+    </section>
+</div>
+<footer th:replace="layoutRegisterLogin :: footer-login_register"></footer>
+</body>
+</html>

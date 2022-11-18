@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông Tin Cá Nhân</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" href="../static/users/login/images/icons/favicon.ico"
+          th:href="@{/users/login/images/icons/favicon.ico}"/>
+    <link href="../static/users/login/css/login_register.css"
+          th:href="@{/users/login/css/login_register.css}" rel="stylesheet" />
+    <link href="../static/users/css/styles.css"
+          th:href="@{/users/css/styles.css}" rel="stylesheet" />
+    <link href="../static/users/css/index.css"
+          th:href="@{/users/css/index.css}" rel="stylesheet" />
+    <link href="../static/users/css/personallnformation.css"
+          th:href="@{/users/css/personallnformation.css}" rel="stylesheet" />
+</head>
+<body>
+<header th:fragment="header-login_register" style="background: #474a4d; margin-left: 0px;">
+    <a class="navbar-brand nav-bar_login_register" th:href="@{/index}">
+        <div>
+            <img th:src="@{/users/logoanhphc/Artboard3.png}" alt="..." style="width: 120px; height: 100px;">
+        </div>
+        <div>
+            <span style="font-size: 14px;">MST 0401977829<br>CÔNG TY TNHH HỖ TRỢ VÀ ĐẦU TƯ TÀI CHÍNH ANH PHÚC</span>
+        </div>
+    </a>
+</header>
+
+<div id="toast1"></div>
+
+<section class="get-in-touch" style="padding: 0; padding-top: 15px; margin-bottom: 100px;">
+    <h2 class="title">Thông Tin Cá Nhân</h2>
+    <form class="contact-form row" th:action="@{/profile/savePersonalInformation}" th:object="${profile}" method="post" enctype="multipart/form-data" >
+        <span style="text-align: center; font-size: 12px; color: #a0a9b2; margin-bottom: 30px;">Điền thông tin thật và hợp lệ.<br>Phần thông tin sẽ được thông qua</span>
+        <input type="hidden" th:field="*{id}" />
+        <div class="form-field col-lg-12" style="display: flex; align-items: center; justify-content: space-evenly">
+            <div>
+                <label th:if="${profile.imgUsers == null}" class="label1" for="img" style="border-radius: 50%">
+                    <img th:src="@{/users/img/user/card1.svg}" alt="" id="image" width="180px" height="180px" style="border-radius: 50%">
+                </label>
+                <label th:if="${profile.imgUsers != null}" class="label1" for="img" style="border-radius: 50%">
+                    <img th:src="@{${profile.imgUsers}}" alt="" id="image1" width="180px" height="180px" style="border-radius: 50%">
+                </label>
+            </div>
+<!--            <div th:if="${profile.imgUsers == null}">-->
+<!--                <input id="img" name="image" class="input-text js-input" type="file" onchange="chooseFile(this)" accept="image/svg, image/png, image/jpg, image/webp, image/gif, image/jpeg">-->
+<!--            </div>-->
+        </div>
+
+        <div class="form-field col-lg-6 ">
+            <input th:field="*{fullName}" id="fullName" class="input-text js-input" type="text" oninput="checkFullName(this)">
+            <label class="label" for="fullName">Họ và tên</label>
+            <span style="color: red;" th:text="${errFullName}"></span>
+        </div>
+
+        <div class="form-field col-lg-6 ">
+            <input th:field="*{age}" id="age" class="input-text js-input" type="number" oninput="checkAge(this)">
+            <label class="label" for="age">Tuổi của bạn</label>
+            <span style="color: red;" th:text="${errAge}"></span>
+        </div>
+
+        <div class="form-field col-lg-6 ">
+            <label class="label" for="date" style="margin-bottom: 20px;">Ngày tháng năm sinh</label>
+            <input th:field="*{dateOfBirth}" id="date" class="input-text js-input" oninput="checkDateOfBirth(this)" type="date" style="color: #ffc880;">
+            <span style="color: red;" th:text="${errDateOfBirth}"></span>
+        </div>
+
+        <div class="form-field col-lg-6 ">
+            <label class="label" for="gender" style="margin-bottom: 20px;">Giới tính</label>
+            <select th:field="*{gender}" name="gender" id="gender" class="input-text js-input" style="color: #ffc880;">
+                <option value="MALE">Nam</option>
+                <option value="FEMALE">Nữ</option>
+            </select>
+        </div>
+
+        <div class="form-field col-lg-6 ">
+            <input th:field="*{phone}" id="phone" class="input-text js-input" type="text" oninput="checkPhone(this)">
+            <label class="label" for="phone">Số điện thoại</label>
+            <span style="color: red;" th:text="${errPhone}"></span>
+        </div>
+
+        <div class="form-field col-lg-6 ">
+            <input th:field="*{address}" id="address" class="input-text js-input" type="text" oninput="checkAddress(this)">
+            <label class="label" for="address">Địa chỉ</label>
+            <span style="color: red;" th:text="${errAddress}"></span>
+        </div>
+
+        <div class="form-field col-lg-12" style="display: flex; justify-content: center">
+            <input class="submit-btn" type="submit" value="Gửi đi">
+        </div>
+
+        <div style="display: flex; justify-content: center; margin-bottom: 25px;">
+            <a class="a-comeBack" th:href="@{/profile/myInformation}"><i class="glyphicon glyphicon-arrow-left"></i> Quay lại</a>
+        </div>
+    </form>
+</section>
+
+<footer th:replace="layoutRegisterLogin :: footer-login_register"></footer>
+</body>
+<script src="../static/users/js/scripts.js"
+        th:src="@{/users/js/img/choosePhoto.js}"></script>
+<script src="../static/users/js/profile.js" th:src="@{/users/js/profile.js}"></script>
+</html>

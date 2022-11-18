@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông Tin Cá Nhân</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" href="../static/users/login/images/icons/favicon.ico"
+          th:href="@{/users/login/images/icons/favicon.ico}"/>
+    <link href="../static/users/login/css/login_register.css"
+          th:href="@{/users/login/css/login_register.css}" rel="stylesheet" />
+    <link href="../static/users/css/styles.css"
+          th:href="@{/users/css/styles.css}" rel="stylesheet" />
+    <link href="../static/users/css/index.css"
+          th:href="@{/users/css/index.css}" rel="stylesheet" />
+    <link href="../static/users/css/cmndCccd.css"
+          th:href="@{/users/css/cmndCccd.css}" rel="stylesheet" />
+</head>
+<body>
+<header th:fragment="header-login_register" style="background: #474a4d; margin-left: 0px;">
+    <a class="navbar-brand nav-bar_login_register" th:href="@{/index}">
+        <div>
+            <img th:src="@{/users/logoanhphc/Artboard3.png}" alt="..." style="width: 120px; height: 100px;">
+        </div>
+        <div>
+            <span style="font-size: 14px;">MST 0401977829<br>CÔNG TY TNHH HỖ TRỢ VÀ ĐẦU TƯ TÀI CHÍNH ANH PHÚC</span>
+        </div>
+    </a>
+</header>
+
+<section class="get-in-touch" style="padding: 0; padding-top: 15px; margin-bottom: 100px;">
+    <h2 class="title">CMND - CCCD</h2>
+    <form class="contact-form row" th:action="@{/profile/saveCmndOrCccd}" th:object="${profile}" method="post" enctype="multipart/form-data">
+        <span style="text-align: center; font-size: 12px; color: #a0a9b2; margin-bottom: 30px;">Chứng minh thư hoặc căn cước công dân là bắt buộc*.<br>Hãy chọn ảnh CMND/CCCD rõ nét ko bị mờ</span>
+
+        <div class="form-field col-lg-12">
+            <input th:field="*{fullName}" id="names" class="input-text js-input" type="text" >
+            <label class="label" for="names">Vui lòng nhập tên của bạn</label>
+            <span style="color: red;" th:text="${errFullName}"></span>
+        </div>
+
+        <div class="form-field col-lg-6">
+            <label class="label" for="names">Vui lòng chọn CMND hoặc CCCD</label>
+            <select name="choose" id="choose" class="input-text js-input" style="color: #ffc880;" th:field="*{cccdCmnd}">
+                <option th:each="cccdCmnd : ${cccdCmndLst}" th:value="${cccdCmnd}" th:text="${cccdCmnd}"></option>
+            </select>
+        </div>
+
+        <div class="form-field col-lg-6 ">
+            <div id="div1">
+                <input th:field="*{numberCccdCmnd}" id="number" class="input-text js-input" type="number" >
+                <label class="label" for="number">Số CMND/CCCD</label>
+            </div>
+            <div>
+                <span style="color: red;" th:text="${errCmndCccd}"></span>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <span style="color: red;" th:text="${errImg}"></span>
+        </div>
+        <div class="form-field col-lg-12 divList">
+            <div style="text-align: center">Ấn vào để upload ảnh<br> mặt trước của CMND/CCCD:</div>
+            <div>
+                <label class="label1" onchange="chooseFile(this)" accept="image/svg, image/png, image/jpg, image/webp, image/gif, image/jpeg">
+<!--                    <img th:src="@{/users/img/user/cccd_cmnd.jpg}" alt="" id="image" width="400px" height="200px" >-->
+                    <div th:if="${profile.imgCard1 == null}">
+                        <img th:src="@{/users/img/user/cccd_cmnd.jpg}" alt="" id="image" width="400px" height="200px" >
+                    </div>
+                    <div th:if="${profile.imgCard1 != null}">
+                        <img th:src="@{${profile.imgCard1}}" alt="" id="imag" width="400px" height="200px"/>
+                    </div>
+                    <div th:if="${profile.imgCard1 == null}">
+                        <input name="image1" id="img" class="input-text js-input" type="file" onchange="chooseFile(this)" accept="image/svg, image/png, image/jpg, image/webp, image/gif, image/jpeg" value="Chọn ảnh" >
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-field col-lg-12 divList">
+            <div style="text-align: center">Ấn vào để upload ảnh<br> mặt sau của CMND/CCCD:</div>
+            <div>
+                <label class="label1" onchange="chooseFile1(this)" accept="image/svg, image/png, image/jpg, image/webp, image/gif, image/jpeg">
+<!--                    <img th:src="@{/users/img/user/cccd_cmnd.jpg}" alt="" id="image1" width="400px" height="200px" >-->
+                    <div th:if="${profile.imgCard2 == null}">
+                        <img th:src="@{/users/img/user/cccd_cmnd.jpg}" alt="" id="image1" width="400px" height="200px" >
+                    </div>
+                    <div th:if="${profile.imgCard2 != null}">
+                        <img th:src="@{${profile.imgCard2}}" alt="" id="imag1" width="400px" height="200px"/>
+                    </div>
+                    <div th:if="${profile.imgCard2 == null}">
+                        <input name="image2" id="img1" class="input-text js-input" type="file" onchange="chooseFile1(this)" accept="image/svg, image/png, image/jpg, image/webp, image/gif, image/jpeg" value="Chọn ảnh">
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-field col-lg-12 divList">
+            <div style="text-align: center">Ấn vào để upload ảnh<br> mặt bạn với CMND/CCCD:</div>
+            <div>
+                <label class="label1" onchange="chooseFile2(this)" accept="image/svg, image/png, image/jpg, image/webp, image/gif, image/jpeg">
+                    <div th:if="${profile.imgUsers == null}">
+                        <img th:src="@{/users/img/user/cccd_cmnd.jpg}" alt="" id="image2" width="400px" height="200px" >
+                    </div>
+                    <div th:if="${profile.imgUsers != null}">
+                        <img  th:src="@{${profile.imgUsers}}" alt="" id="imag2" width="400px" height="200px"/>
+                    </div>
+                    <div th:if="${profile.imgUsers == null}">
+                        <input name="image3" id="img2" class="input-text js-input" type="file" onchange="chooseFile2(this)" accept="image/svg, image/png, image/jpg, image/webp, image/gif, image/jpeg" value="Chọn ảnh">
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-field col-lg-12" style="display: flex; justify-content: center">
+            <input th:if="${profile.imgCard1 == null && profile.imgCard2 == null && profile.imgUsers == null}" class="submit-btn" type="submit" value="Gửi đi">
+        </div>
+
+        <div style="display: flex; justify-content: center; margin-bottom: 25px;">
+            <a class="a-comeBack" th:href="@{/profile/myInformation}"><i class="glyphicon glyphicon-arrow-left"></i> Quay lại</a>
+        </div>
+    </form>
+</section>
+
+<footer th:replace="layoutRegisterLogin :: footer-login_register"></footer>
+</body>
+<script src="../static/users/js/cccdCmnd.js"
+        th:src="@{/users/js/cccdCmnd.js}"></script>
+<script src="../static/users/js/scripts.js"
+        th:src="@{/users/js/img/choosePhoto.js}"></script>
+</html>
